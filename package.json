@@ -1,22 +1,21 @@
 {
-  "name": "jobtracker-project",
+  "name": "jobplicity",
   "version": "1.0.0",
   "description": "Jobplicity",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "Johnson Che, Quyen Calixto, Steven Du, Tin Khin",
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",
     "build-prod": "webpack --mode production",
-    "start": "webpack serve --hot --mode development"
+    "start": "webpack serve --mode development"
   },
   "dependencies": {
     "tailwindcss": "^3.0.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hot-loader": "^4.13.0",
     "@material-ui/core": "^4.12.3",
     "fontsource-roboto": "^4.0.0",
     "@material-ui/icons": "^4.11.2"
@@ -27,7 +26,6 @@
     "babel-loader": "^8.2.3",
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
-    "@hot-loader/react-dom": "^17.0.1+4.13.0",
     "css-loader": "^6.5.1",
     "style-loader": "^3.3.1",
     "postcss-loader": "^6.2.1",
@@ -40,6 +38,7 @@
     "ts-loader": "^9.2.6",
     "url-loader": "^4.1.1",
     "file-loader": "^6.2.0"
+<<<<<<< HEAD
   },
   "repository": {
     "type": "git",
@@ -49,4 +48,7 @@
     "url": "https://github.com/JobTrack-Jigglypuff/Jobplicity/issues"
   },
   "homepage": "https://github.com/JobTrack-Jigglypuff/Jobplicity#readme"
+=======
+  }
+>>>>>>> 6692cb80066726899f0ba707a923fdf10caca86e
 }
