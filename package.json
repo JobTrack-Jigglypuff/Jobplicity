@@ -34,7 +34,7 @@
     "@types/react-dom": "^17.0.11",
     "@babel/preset-react": "^7.16.7",
     "webpack-dev-server": "^4.7.2",
-    "typescript": "^4.5.4",
+    "typescript": "^4.5.4",s
     "ts-loader": "^9.2.6",
     "url-loader": "^4.1.1",
     "file-loader": "^6.2.0"
