@@ -2,20 +2,17 @@ const webpack = require('webpack');
 const path = require('path');
 
 const config = {
-  entry: [
-    'react-hot-loader/patch',
-    './src/index.tsx'
-  ],
+  entry: ['./src/index.tsx'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -24,16 +21,16 @@ const config = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1
-            }
+              importLoaders: 1,
+            },
           },
-          'postcss-loader'
-        ]
+          'postcss-loader',
+        ],
       },
       {
         test: /\.ts(x)?$/,
         loader: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.png$/,
@@ -41,32 +38,25 @@ const config = {
           {
             loader: 'url-loader',
             options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
+              mimetype: 'image/png',
+            },
+          },
+        ],
       },
       {
         test: /\.svg$/,
-        use: 'file-loader'
-      }
-    ]
+        use: 'file-loader',
+      },
+    ],
   },
   devServer: {
-    'static': {
-      directory: './dist'
-    }
+    static: {
+      directory: './dist',
+    },
   },
   resolve: {
-    extensions: [
-      '.tsx',
-      '.ts',
-      '.js'
-    ],
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
-    }
-  }
+    extensions: ['.tsx', '.ts', '.js'],
+  },
 };
 
 module.exports = config;
