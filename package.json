@@ -1,7 +1,7 @@
 {
   "name": "jobtracker-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Jobplicity",
   "main": "index.js",
   "keywords": [],
   "author": "",
@@ -40,5 +40,13 @@
     "ts-loader": "^9.2.6",
     "url-loader": "^4.1.1",
     "file-loader": "^6.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JobTrack-Jigglypuff/Jobplicity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JobTrack-Jigglypuff/Jobplicity/issues"
+  },
+  "homepage": "https://github.com/JobTrack-Jigglypuff/Jobplicity#readme"
 }
