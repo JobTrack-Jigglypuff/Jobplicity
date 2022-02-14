@@ -38,17 +38,5 @@
     "ts-loader": "^9.2.6",
     "url-loader": "^4.1.1",
     "file-loader": "^6.2.0"
-<<<<<<< HEAD
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JobTrack-Jigglypuff/Jobplicity.git"
-  },
-  "bugs": {
-    "url": "https://github.com/JobTrack-Jigglypuff/Jobplicity/issues"
-  },
-  "homepage": "https://github.com/JobTrack-Jigglypuff/Jobplicity#readme"
-=======
   }
->>>>>>> 6692cb80066726899f0ba707a923fdf10caca86e
 }
