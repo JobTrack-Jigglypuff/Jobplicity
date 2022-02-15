@@ -6,7 +6,7 @@ export default function ValidationTextFields({
   error,
   label,
   helperText,
-  password
+  password,
 }: {
   error: boolean;
   label: string;

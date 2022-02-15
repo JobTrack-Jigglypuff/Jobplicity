@@ -6,6 +6,7 @@ dist/*
 !dist/index.html
 node_modules/
 *.log
+tailwind.output.css
 
 # OS generated files
 .DS_Store
