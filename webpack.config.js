@@ -56,6 +56,7 @@ const config = {
     static: {
       directory: './dist',
     },
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
