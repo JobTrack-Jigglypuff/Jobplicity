@@ -1,8 +1,15 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-
-import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 import './styles.css';
+import './styles/index.scss';
+import App from './App';
 
-const mountNode = document.getElementById('app');
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('app')
+);

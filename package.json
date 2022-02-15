@@ -2,7 +2,8 @@
   "name": "jobplicity",
   "version": "1.0.0",
   "description": "Jobplicity",
-  "main": "index.js",
+  "main": "index",
+  "typings": "index",
   "keywords": [],
   "author": "Johnson Che, Quyen Calixto, Steven Du, Tin Khin",
   "license": "ISC",
@@ -13,8 +14,15 @@
     "start": "webpack serve --mode development"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/material": "^5.4.1",
+    "mini-css-extract-plugin": "^2.5.3",
+    "node-sass": "^7.0.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
+    "sass-loader": "^12.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
