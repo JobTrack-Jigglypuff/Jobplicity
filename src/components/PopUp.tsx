@@ -34,7 +34,7 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
       {children}
       {onClose ? (
         <IconButton
-          aria-label="close"
+          aria-label='close'
           onClick={onClose}
           sx={{
             position: 'relative',
@@ -62,15 +62,15 @@ function PopUp() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant='outlined' onClick={handleClickOpen}>
         Open dialog
       </Button>
       <BootstrapDialog
         onClose={handleClose}
-        aria-labelledby="App-Form"
+        aria-labelledby='App-Form'
         open={open}
       >
-        <BootstrapDialogTitle id="App-Form" onClose={handleClose}>
+        <BootstrapDialogTitle id='App-Form' onClose={handleClose}>
           Application Form
         </BootstrapDialogTitle>
         <DialogContent dividers>
@@ -80,6 +80,5 @@ function PopUp() {
     </div>
   );
 }
-
 
 export default PopUp;

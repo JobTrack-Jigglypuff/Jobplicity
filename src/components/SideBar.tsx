@@ -18,11 +18,11 @@ import { ListItemText } from '@material-ui/core';
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    ...(theme.mixins.toolbar as BaseCSSProperties),
-    justifyContent: 'flex-end',
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  ...(theme.mixins.toolbar as BaseCSSProperties),
+  justifyContent: 'flex-end',
 }));
 
 const drawerWidth = 200;
@@ -82,25 +82,30 @@ export default function SideBar() {
   return (
     <Box sx={{ display: 'flex', bgcolor: '#bbdefb' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position='fixed' open={open}>
         <Toolbar>
           <IconButton
-            color="inherit"
-            aria-label="open drawer"
+            color='inherit'
+            aria-label='open drawer'
             onClick={handleDrawerOpen}
-            edge="start"
+            edge='start'
             sx={{ mr: 2, ...(open && { display: 'none' }) }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant='h6' noWrap component='div'>
             My Board
           </Typography>
-          <Typography variant="h6" align='center' component="div" sx={{ flexGrow: 1 }}>
-                Welcome to Jobplicity!
+          <Typography
+            variant='h6'
+            align='center'
+            component='div'
+            sx={{ flexGrow: 1 }}
+          >
+            Welcome to Jobplicity!
           </Typography>
           <Typography variant='h6'>
-            <Button color="inherit">SignOut</Button>
+            <Button color='inherit'>SignOut</Button>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -113,13 +118,17 @@ export default function SideBar() {
             boxSizing: 'border-box',
           },
         }}
-        variant="persistent"
-        anchor="left"
+        variant='persistent'
+        anchor='left'
         open={open}
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'ltr' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </DrawerHeader>
         <Divider />
@@ -130,11 +139,9 @@ export default function SideBar() {
             </ListItem>
           ))}
         </List>
-        <Divider />        
+        <Divider />
       </Drawer>
-      <Main open={open}>
-        
-      </Main>
+      <Main open={open}></Main>
     </Box>
   );
 }
