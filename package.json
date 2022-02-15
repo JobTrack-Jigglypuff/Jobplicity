@@ -11,7 +11,8 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",
     "build-prod": "webpack --mode production",
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development nodemon server/server.js",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open\" \"nodemon ./server/server.js\""
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -19,8 +20,15 @@
     "@mui/material": "^5.4.1",
     "@reduxjs/toolkit": "^1.7.2",
     "@types/react-redux": "^7.1.22",
+    "bcrypt": "^5.0.1",
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
     "mini-css-extract-plugin": "^2.5.3",
     "node-sass": "^7.0.1",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",

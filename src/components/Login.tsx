@@ -8,7 +8,7 @@ import { setSignup } from '../Redux/slice/signupSlice';
 const Login = () => {
   const [error, useError] = useState(false);
 
-  const signupState = useAppSelector(state => state.signup.isSignup);
+  const signupState = useAppSelector((state) => state.signup.isSignup);
   const dispatch = useAppDispatch();
 
   return (
@@ -33,7 +33,10 @@ const Login = () => {
           <div className='login-button'>
             <a>Login</a>
           </div>
-          <div className='signup-button' onClick={() => dispatch(setSignup(true))}>
+          <div
+            className='signup-button'
+            onClick={() => dispatch(setSignup(true))}
+          >
             <a>Signup</a>
           </div>
         </div>

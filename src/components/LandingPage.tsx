@@ -5,7 +5,7 @@ import Signup from './Signup';
 import { useAppSelector } from '../Redux/hooks';
 
 const LandingPage = () => {
-  const signupState = useAppSelector(state => state.signup.isSignup);
+  const signupState = useAppSelector((state) => state.signup.isSignup);
 
   return (
     <>
