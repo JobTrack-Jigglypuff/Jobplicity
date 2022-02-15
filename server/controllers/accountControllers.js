@@ -65,6 +65,7 @@ controller.newAccount = async (req, res, next) => {
 controller.getAccount = async (req, res, next) => {
   try {
     const { username, password } = req.body; // for sql WHERE
+    
     const text = `SELECT user_id, username, password, fullname FROM public.accounts WHERE username = $1`;
 
     const results = await db.query(text, [username]);

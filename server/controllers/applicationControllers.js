@@ -82,9 +82,11 @@ appController.createApp = async (req, res, next) => {
 };
 
 //Update applications
+
 // UPDATE table_name
 // SET column1 = value1,
 //     column2 = value2,
+
 // WHERE condition
 // RETURNING *
 
