@@ -1,68 +1,39 @@
 import * as React from 'react';
 import '../styles/Login.scss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import TextField from './TextField';
+import { useAppDispatch, useAppSelector } from '../Redux/hooks';
+import { setSignup } from '../Redux/slice/signupSlice';
 
 const Login = () => {
   const [error, useError] = useState(false);
-  const [signUp, useSignUp] = useState(false);
+
+  const signupState = useAppSelector(state => state.signup.isSignup);
+  const dispatch = useAppDispatch();
 
   return (
     <>
       <div className='login-container'>
         <h1>Welcome to Jobplicity!</h1>
-        {signUp ? (
-          <div className='signup-textfield'>
-          <div className='left-container'>
-            <TextField
-              error={error}
-              label='Full Name'
-              helperText=''
-              password={false}
-            />
-            <TextField
-              error={error}
-              label='Username'
-              helperText='Not a valid username'
-              password={false}
-            />
-          </div>
-          <div className='right-container'>
-            <TextField
-              error={error}
-              label='Password'
-              helperText=''
-              password={true}
-            />
-            <TextField
-              error={error}
-              label='Verify Password'
-              helperText="Password doesn't match"
-              password={true}
-            />
-          </div>
-          </div>
-        ) : (
-          <>
-            <TextField
-              error={error}
-              label='Username'
-              helperText=''
-              password={false}
-            />
-            <TextField
-              error={error}
-              label='Password'
-              helperText='Incorrect Username/Password'
-              password={true}
-            />
-          </>
-        )}
+
+        <TextField
+          error={error}
+          label='Username'
+          helperText=''
+          password={false}
+        />
+        <TextField
+          error={error}
+          label='Password'
+          helperText='Incorrect Username/Password'
+          password={true}
+        />
+
         <div className='button-container'>
-          <div className='login-button' onClick={() => useSignUp(false)}>
+          <div className='login-button'>
             <a>Login</a>
           </div>
-          <div className='signup-button' onClick={() => useSignUp(true)}>
+          <div className='signup-button' onClick={() => dispatch(setSignup(true))}>
             <a>Signup</a>
           </div>
         </div>
