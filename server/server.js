@@ -3,11 +3,7 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 const accountController = require('./controllers/accountControllers');
-<<<<<<< HEAD
 const appController = require('./controllers/applicationControllers');
-=======
-const applicationController = require('./controllers/applicationControllers');
->>>>>>> dev
 const db = require('./database');
 
 /* handle parsing request body
@@ -36,14 +32,9 @@ app.post(
   '/login',
   accountController.getAccount,
   accountController.verifyAccount,
-<<<<<<< HEAD
   appController.getApp,
   (req, res) => {
     res.status(201).json(res.locals.applications);
-=======
-  (req, res) => {
-    res.status(201).json(res.locals.verified);
->>>>>>> dev
   }
 );
 
