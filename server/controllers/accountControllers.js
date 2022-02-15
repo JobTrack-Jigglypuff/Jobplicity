@@ -65,7 +65,11 @@ controller.newAccount = async (req, res, next) => {
 controller.getAccount = async (req, res, next) => {
   try {
     const { username, password } = req.body; // for sql WHERE
+<<<<<<< HEAD
+    const text = `SELECT user_id, username, password, fullname FROM public.accounts WHERE username = $1`;
+=======
     const text = `SELECT username, password, fullname FROM public.accounts WHERE username = $1`;
+>>>>>>> dev
 
     const results = await db.query(text, [username]);
     const data = results.rows;
@@ -95,7 +99,14 @@ controller.verifyAccount = async (req, res, next) => {
     await bcrypt.compare(userPass, dbData[0].password, (err, ok) => {
       if (ok) {
         console.log('bcrypt comparison check OK');
+<<<<<<< HEAD
+        res.locals.data = {
+          verified: true,
+          user_id: dbData[0].user_id,
+        };
+=======
         res.locals.verified = true;
+>>>>>>> dev
         return next();
       } else {
         res.send(err);

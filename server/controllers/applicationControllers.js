@@ -4,6 +4,22 @@ const appController = {};
 
 //Get applications
 appController.getApp = async (req, res, next) => {
+<<<<<<< HEAD
+  try {
+    const { user_id } = res.locals.data;
+
+    const applications = `SELECT * FROM "public"."applications" WHERE user_id = $1`;
+
+    const results = await db.query(applications, [user_id]);
+    res.locals.applications = results.rows;
+    next();
+  } catch (error) {
+    return next({
+      log: `controller.getApp ERROR found`,
+      status: 500,
+      message: {
+        error: 'Error occurred in controller.getApp. Check server logs.',
+=======
   console.log('this is req.body', req.body);
   try {
     const {
@@ -30,6 +46,7 @@ appController.getApp = async (req, res, next) => {
       status: 500,
       message: {
         error: 'Error occurred in controller.createApp. Check server logs.',
+>>>>>>> dev
       },
     });
   }
@@ -94,6 +111,11 @@ appController.createApp = async (req, res, next) => {
 };
 
 //Update applications
+<<<<<<< HEAD
+// UPDATE table_name
+// SET column1 = value1,
+//     column2 = value2,
+=======
 // UPDATE courses
 // SET published_date = '2020-07-01'
 // WHERE course_id = 2
@@ -101,6 +123,7 @@ appController.createApp = async (req, res, next) => {
 // SET column1 = value1,
 //     column2 = value2,
 //     ...
+>>>>>>> dev
 // WHERE condition
 // RETURNING *
 
@@ -130,7 +153,11 @@ appController.updateApp = async (req, res, next) => {
           deadline = ($7), 
           contact = ($8), 
           stage = ($9)
+<<<<<<< HEAD
+      WHERE app_id = $1
+=======
       WHERE app_id = 
+>>>>>>> dev
       RETURNING * `;
     const dbParams = [
       company_name,
@@ -168,7 +195,11 @@ appController.deleteApp = async (req, res, next) => {
     const { app_id } = req.body;
 
     const deleteQuery =
+<<<<<<< HEAD
+      'DELETE FROM applications WHERE app_id = $1 RETURNING * ';
+=======
       'DELETE FROM applications WHERE app_id = 1 RETURNING * ';
+>>>>>>> dev
 
     const results = await db.query(deleteQuery);
     res.locals.deleteApp = results;
