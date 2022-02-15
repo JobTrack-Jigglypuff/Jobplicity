@@ -17,7 +17,6 @@ const config = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -55,7 +54,7 @@ const config = {
     },
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
 };
 

@@ -1,7 +1,12 @@
 import * as React from 'react';
+import Home from './components/Home';
 
 const App = () => {
-  return <>Hello world</>;
+  return (
+    <>
+      <Home />
+    </>
+  );
 };
 
 export default App;
