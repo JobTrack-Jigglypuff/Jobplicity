@@ -33,7 +33,7 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
   console.log(children);
 
   return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+    <DialogTitle sx={{ m: 0, p: 2, backgroundColor:'#325670', color:'white'}} {...other}>
       {children}
       {onClose ? (
         <IconButton

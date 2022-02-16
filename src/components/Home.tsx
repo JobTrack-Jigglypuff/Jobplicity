@@ -1,10 +1,8 @@
 import * as React from 'react';
 import SideBar from './SideBar';
-import Container from '@mui/material/Container';
-import Stack from '@mui/material/Stack';
 import '../styles/HomePage.scss';
-import VerticalDragDrop from './VerticalDragDrop';
 import PopUpNew from './PopUpNew';
+import DragDropCanvas from './DragDropCanvas';
 
 function Home() {
 
@@ -12,7 +10,7 @@ function Home() {
     <>    
       <div className='home_page'>
           <SideBar />          
-          <VerticalDragDrop />
+          <DragDropCanvas />
           <div>
             <PopUpNew /> 
           </div>

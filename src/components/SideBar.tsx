@@ -17,6 +17,7 @@ import ListItem from '@mui/material/ListItem';
 import { ListItemText } from '@material-ui/core';
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
 import Logout from './Logout';
+import { BrowserRouter as Router, useNavigate} from "react-router-dom";
 
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -61,6 +62,18 @@ export default function SideBar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  //handling sidebar route
+  const navigate = useNavigate();
+    const handleBoard = () => {
+      setTimeout(()=>{navigate('/home')}, 1000);
+    }
+    const handleActivities = () => {
+      setTimeout(()=>{navigate('/activities')}, 1000);
+    }
+    const handleContact = () => {
+      setTimeout(()=>{navigate('/contact')}, 1000);
+    }
 
   return (
     <Box sx={{ display: 'flex'}}>
@@ -107,11 +120,15 @@ export default function SideBar() {
         </DrawerHeader>
         <Divider />
         <List sx={{backgroundColor:'#EAE7DC', height:'100vh'}}>
-          {['Board', 'Activities', 'Contact'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
+            <ListItem button key={'Board'} onClick={handleBoard}>
+              <ListItemText primary={"Board"} />
             </ListItem>
-          ))}
+            <ListItem button key={'Activities'} onClick={handleActivities}>
+              <ListItemText primary={"Activities"} />
+            </ListItem>
+            <ListItem button key={'Contact'} onClick={handleContact}>
+              <ListItemText primary={"Contact"} />
+            </ListItem>
         </List>
         <Divider />        
       </Drawer>

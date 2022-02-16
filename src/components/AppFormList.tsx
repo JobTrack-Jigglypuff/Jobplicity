@@ -56,19 +56,19 @@ function AppFormList({setOpen}:{setOpen:React.Dispatch<React.SetStateAction<bool
           <MenuItem value={'Rejected'}>Rejected</MenuItem>
         </Select>
         <Divider />
-        <Button color="secondary"
+        <Button
         onClick={handleClick}
         startIcon={<SaveIcon />}
         variant="contained"
-        style={{width:'20ch',height:'8ch', padding:'10px', margin:'50px'}}
+        style={{width:'20ch',height:'8ch', padding:'10px', margin:'50px', backgroundColor:'#e98074'}}
         >
         Save
         </Button>
-        <Button color="primary"
+        <Button
         onClick={handleCancel}
         startIcon={<DeleteIcon />}
         variant="contained"
-        style={{width:'20ch',height:'8ch', padding:'10px', margin:'50px'}}
+        style={{width:'20ch',height:'8ch', padding:'10px', margin:'50px', backgroundColor:'#325670'}}
         >
           Cancel       
         </Button>
