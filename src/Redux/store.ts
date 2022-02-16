@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import signupReducer from './slice/signupSlice';
+import dashBoardReducer from './slice/dashBoardSlice';
 
 export const store = configureStore({
   reducer: {
     signup: signupReducer,
+    dashBoard: dashBoardReducer
   },
 });
 

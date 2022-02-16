@@ -113,6 +113,10 @@ function VerticalDragDrop() {
     }
   };
 
+  // 	setTodo(items)
+  //       console.log(todo);
+  // }
+  //return each items
   return (
     <div
       style={{
