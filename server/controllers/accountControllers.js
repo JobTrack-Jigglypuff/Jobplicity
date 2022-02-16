@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const { resourceLimits } = require('worker_threads');
 const db = require('../database');
 
+
 const controller = {};
 
 //hash a user inputted password
@@ -114,6 +115,11 @@ controller.verifyAccount = async (req, res, next) => {
       },
     });
   }
+};
+
+controller.logout = (req, res, next) => {
+  //clear cookies in controller if we setup
+  next();
 };
 
 module.exports = controller;

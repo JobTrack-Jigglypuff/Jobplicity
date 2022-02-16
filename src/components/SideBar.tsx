@@ -16,6 +16,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import { ListItemText } from '@material-ui/core';
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+import Logout from './Logout';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -100,7 +101,7 @@ export default function SideBar() {
                 Welcome to Jobplicity!
           </Typography>
           <Typography variant='h6'>
-            <Button color="inherit">SignOut</Button>
+            <Logout />
           </Typography>
         </Toolbar>
       </AppBar>

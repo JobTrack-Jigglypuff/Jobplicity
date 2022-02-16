@@ -4,19 +4,18 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Landing from './Landing';
 import Stack from '@mui/material/Stack';
-import AppForm from './AppFormList';
+import '../styles/HomePage.scss';
 
 function Home() {
 
   return (
     <>    
-      <div>
+      <div className='home_page'>
       <CssBaseline />
       <Container maxWidth="xl">
         <Stack direction='column'>
         <SideBar />
         <Landing />
-        {/* <AppForm /> */}
         </Stack> 
 
       </Container>

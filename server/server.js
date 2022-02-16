@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const controller = require('./controllers/accountControllers');
 const app = express();
 const PORT = 3000;
 const accountController = require('./controllers/accountControllers');
@@ -37,6 +38,14 @@ app.post(
     res.status(201).json(res.locals.applications);
   }
 );
+
+app.get("/logout", controller.logout, (req, res) => {
+  res.status(200).send({
+    loggedIn: false,
+    userType: "",
+    userData: false
+  });
+});
 
 // route handler to respond with main app
 app.get('/', (req, res) => {

@@ -56,6 +56,7 @@ function VerticalDragDrop() {
         <div className="list">
           <DragDropContext onDragEnd={onDragEnd}>
               <Droppable droppableId="todo">
+                  {/*need to call callback func inside Droppable */}
                   {(provided) => (
                       <div {...provided.droppableProps} ref={provided.innerRef}>
                           {todo.map(({ id, company }, index) => {
@@ -69,6 +70,7 @@ function VerticalDragDrop() {
                                               style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
                                           >
                                               {company}
+                                              {console.log(company, id)}
                                           </div>
                                       )}
                                   </Draggable>
