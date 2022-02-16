@@ -101,7 +101,10 @@ controller.verifyAccount = async (req, res, next) => {
         };
         return next();
       } else {
-        res.send(err);
+        res.locals.data = {
+          verified: false,
+        };
+        return next();
       }
     });
   } catch (error) {

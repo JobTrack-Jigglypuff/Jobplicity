@@ -5,6 +5,8 @@ const appController = {};
 //Get applications
 appController.getApp = async (req, res, next) => {
   try {
+    if (!res.locals.data.verified) return next();
+
     const { user_id } = res.locals.data;
 
     const applications = `SELECT * FROM "public"."applications" WHERE user_id = $1`;
