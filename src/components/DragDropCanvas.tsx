@@ -104,7 +104,6 @@ function DragDropCanvas() {
   function handleAppClick(app: any) {
     console.log('from card click', app);
     dispatch(setItemData(app));
-
     dispatch(setEditApp(true));
     dispatch(setPopUp(true));
   }

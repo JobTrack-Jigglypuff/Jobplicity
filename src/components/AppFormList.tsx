@@ -202,7 +202,7 @@ function AppFormList() {
             height: '8ch',
             padding: '10px',
             margin: '50px',
-            backgroundColor: '#e98074',
+            backgroundColor: '#ff9999',
           }}
         >
           Save
@@ -216,7 +216,7 @@ function AppFormList() {
             height: '8ch',
             padding: '10px',
             margin: '50px',
-            backgroundColor: '#325670',
+            backgroundColor: '#40514e',
           }}
         >
           Cancel

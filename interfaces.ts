@@ -26,6 +26,7 @@ export interface Application {
   url?: string;
   user_id?: number;
 }
+
 export interface DashBoardState {
   data: {
     applied: Application[];

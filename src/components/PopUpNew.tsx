@@ -13,7 +13,7 @@ import { setPopUp } from '../Redux/slice/dashBoardSlice';
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
-    backgroundColor: '#EAE7DC',
+    backgroundColor: '#e0ece4',
   },
   '& .MuiDialogActions-root': {
     padding: theme.spacing(1),
@@ -34,7 +34,7 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
 
   return (
     <DialogTitle
-      sx={{ m: 0, p: 2, backgroundColor: '#325670', color: 'white' }}
+      sx={{ m: 0, p: 2, backgroundColor: '#8785A2', color: 'white' }}
       {...other}
     >
       {children}
@@ -73,8 +73,8 @@ function PopUpNew() {
   return (
     <div>
       <Button
-        sx={{ backgroundColor: '#e98074' }}
-        variant='outlined'
+        sx={{ backgroundColor: '#ff9999' }}
+        variant='contained'
         onClick={handleClickOpen}
       >
         +
