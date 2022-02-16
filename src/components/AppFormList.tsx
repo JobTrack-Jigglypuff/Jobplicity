@@ -176,18 +176,30 @@ function AppFormList({
         </Select>
         <Divider />
         <Button
-        onClick={handleClick}
-        startIcon={<SaveIcon />}
-        variant="contained"
-        style={{width:'20ch',height:'8ch', padding:'10px', margin:'50px', backgroundColor:'#e98074'}}
+          onClick={handleClick}
+          startIcon={<SaveIcon />}
+          variant='contained'
+          style={{
+            width: '20ch',
+            height: '8ch',
+            padding: '10px',
+            margin: '50px',
+            backgroundColor: '#ff9999',
+          }}
         >
           Save
         </Button>
         <Button
-        onClick={handleCancel}
-        startIcon={<DeleteIcon />}
-        variant="contained"
-        style={{width:'20ch',height:'8ch', padding:'10px', margin:'50px', backgroundColor:'#325670'}}
+          onClick={handleCancel}
+          startIcon={<DeleteIcon />}
+          variant='contained'
+          style={{
+            width: '20ch',
+            height: '8ch',
+            padding: '10px',
+            margin: '50px',
+            backgroundColor: '#40514e',
+          }}
         >
           Cancel
         </Button>

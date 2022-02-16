@@ -55,8 +55,17 @@ const Signup = () => {
       })
       .catch((err: AxiosError) => {
         useUserError(true);
-        usePasswordError(true);
       });
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
+    console.log('inside keydown func');
+    if (e.key === 'Enter') {
+      console.log('pressed enter key');
+      e.preventDefault();
+      e.stopPropagation();
+      handleSignup();
+    }
   };
 
   useEffect(() => {
@@ -116,24 +125,37 @@ const Signup = () => {
           <div className='left-container'>
             <TextField
               id=''
+              className={''}
               error={false}
               label='Full Name'
               helperText=''
               password={false}
               onChange={(e) => useFullName(e.target.value)}
+              onKeyDown={(e) => onKeyDown(e)}
             />
             <TextField
               id=''
+              className={userError ? 'error' : ''}
               error={userError}
               label='Username'
               helperText='Not a valid username'
               password={false}
               onChange={(e) => useUsername(e.target.value)}
+              onKeyDown={(e) => onKeyDown(e)}
             />
           </div>
           <div className='right-container'>
             <TextField
               id='password'
+              className={
+                passwordError ||
+                lowercaseError ||
+                uppercaseError ||
+                numberError ||
+                atLeastError
+                  ? 'error'
+                  : ''
+              }
               error={
                 passwordError
                   ? lowercaseError
@@ -159,23 +181,26 @@ const Signup = () => {
               }`}
               password={true}
               onChange={(e) => usePassword(e.target.value)}
+              onKeyDown={(e) => onKeyDown(e)}
             />
             <TextField
               id=''
+              className={verifyPassword && passwordError ? 'error' : ''}
               error={passwordError}
               label='Verify Password'
               helperText="Password doesn't match"
               password={true}
               onChange={(e) => useVerifyPassword(e.target.value)}
+              onKeyDown={(e) => onKeyDown(e)}
             />
           </div>
         </div>
         <div className='button-container'>
           <div
-            className='login-button'
+            className='already-button'
             onClick={() => dispatch(setSignup(false))}
           >
-            <a>Login</a>
+            <a>Already have an account?</a>
           </div>
           <div className='signup-button' ref={signupEl} onClick={handleSignup}>
             <a>Signup</a>

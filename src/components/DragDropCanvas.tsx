@@ -94,7 +94,6 @@ function DragDropCanvas() {
     return appColumns;
   }
 
-  
   // useEffect(() => {
   //   console.log('dashboardState useeffect', dashboardState);
   // }, [dashboardState]);
@@ -149,7 +148,7 @@ function DragDropCanvas() {
         height: '100%',
         padding: '1em',
         margin: '10px',
-        marginTop:'10%'
+        marginTop: '10%',
       }}
     >
       <div
@@ -183,7 +182,7 @@ function DragDropCanvas() {
                             ref={provided.innerRef}
                             style={{
                               background: snapshot.isDraggingOver
-                                ? 'lightblue'
+                                ? 'lightpink'
                                 : 'lightgrey',
                               padding: 4,
                               width: 250,
@@ -208,11 +207,19 @@ function DragDropCanvas() {
                                           padding: 16,
                                           margin: '0 0 8px 0',
                                           minHeight: '50px',
+                                          borderRadius: '15px',
                                           backgroundColor: snapshot.isDragging
                                             ? '#456C86'
-                                            : "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," +  
-                                            Math.floor(Math.random() * 255) + ")",
+                                            : 'rgb(' +
+                                              Math.floor(Math.random() * 200) +
+                                              ',' +
+                                              Math.floor(Math.random() * 200) +
+                                              ',' +
+                                              Math.floor(Math.random() * 200) +
+                                              ')',
                                           color: 'white',
+                                          fontWeight: 'bold',
+                                          fontSize: 'medium',
                                           ...provided.draggableProps.style,
                                         }}
                                       >

@@ -5,16 +5,15 @@ import PopUpNew from './PopUpNew';
 import DragDropCanvas from './DragDropCanvas';
 
 function Home() {
-
   return (
-    <>    
+    <>
       <div className='home_page'>
-          <SideBar />          
-          <DragDropCanvas />
-          <div>
-            <PopUpNew /> 
-          </div>
-    </div>
+        <SideBar />
+        <DragDropCanvas />
+        <div>
+          <PopUpNew />
+        </div>
+      </div>
     </>
   );
 }
