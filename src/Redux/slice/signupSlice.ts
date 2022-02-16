@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { signupState } from '../../../interfaces';
+import { SignupState } from '../../../interfaces';
 
-const initialState: signupState = {
+const initialState: SignupState = {
   isSignup: false,
 };
 

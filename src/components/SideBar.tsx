@@ -22,30 +22,12 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
+    backgroundColor:'#325670',
     ...(theme.mixins.toolbar as BaseCSSProperties),
     justifyContent: 'flex-end',
 }));
 
 const drawerWidth = 200;
-
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
-  open?: boolean;
-}>(({ theme, open }) => ({
-  flexGrow: 1,
-  padding: theme.spacing(3),
-  transition: theme.transitions.create('margin', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  marginLeft: `-${drawerWidth}px`,
-  ...(open && {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  }),
-}));
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -81,10 +63,10 @@ export default function SideBar() {
   };
 
   return (
-    <Box sx={{ display: 'flex', bgcolor: '#bbdefb' }}>
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar>
+        <Toolbar sx={{backgroundColor:'#325670'}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -101,7 +83,7 @@ export default function SideBar() {
                 Welcome to Jobplicity!
           </Typography>
           <Typography variant='h6'>
-            <Button color="inherit">SignOut</Button>
+            <Logout />
           </Typography>
         </Toolbar>
       </AppBar>
@@ -124,7 +106,7 @@ export default function SideBar() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        <List sx={{backgroundColor:'#EAE7DC', height:'100vh'}}>
           {['Board', 'Activities', 'Contact'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemText primary={text} />
@@ -133,9 +115,6 @@ export default function SideBar() {
         </List>
         <Divider />        
       </Drawer>
-      <Main open={open}>
-        
-      </Main>
     </Box>
   );
 }

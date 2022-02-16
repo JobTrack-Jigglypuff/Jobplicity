@@ -158,7 +158,7 @@ function VerticalDragDrop() {
                               ? 'lightblue'
                               : 'lightgrey',
                             padding: 4,
-                            width: 250,
+                            width: 200,
                             minHeight: 500,
                           }}
                         >
@@ -177,7 +177,7 @@ function VerticalDragDrop() {
                                       {...provided.dragHandleProps}
                                       style={{
                                         userSelect: 'none',
-                                        padding: 16,
+                                        padding: 10,
                                         margin: '0 0 8px 0',
                                         minHeight: '50px',
                                         backgroundColor: snapshot.isDragging

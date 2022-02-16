@@ -1,0 +1,18 @@
+.signout-button {
+    display: flex;
+    background-color: #e98074;
+    padding: 20px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #d7fbe8;
+    font-size: 85%;
+    font-weight: 300;
+    
+    &:hover {
+      background-color: #e85a4f;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
