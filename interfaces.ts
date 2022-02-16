@@ -36,6 +36,8 @@ export interface DashBoardState {
     rejected: Application[];
     user_id: number;
   };
+  
+  fullName: string;
   popup: boolean;
   editApp: boolean;
   itemData: {

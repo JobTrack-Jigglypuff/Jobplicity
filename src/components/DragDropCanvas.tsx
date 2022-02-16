@@ -195,7 +195,7 @@ function DragDropCanvas() {
                             ref={provided.innerRef}
                             style={{
                               background: snapshot.isDraggingOver
-                                ? 'lightblue'
+                                ? 'lightpink'
                                 : 'lightgrey',
                               padding: 4,
                               width: 250,
@@ -220,14 +220,15 @@ function DragDropCanvas() {
                                           padding: 16,
                                           margin: '0 0 8px 0',
                                           minHeight: '50px',
+                                          borderRadius: '15px',
                                           backgroundColor: snapshot.isDragging
                                             ? '#456C86'
                                             : 'rgb(' +
-                                              Math.floor(Math.random() * 255) +
+                                              Math.floor(Math.random() * 200) +
                                               ',' +
-                                              Math.floor(Math.random() * 255) +
+                                              Math.floor(Math.random() * 200) +
                                               ',' +
-                                              Math.floor(Math.random() * 255) +
+                                              Math.floor(Math.random() * 200) +
                                               ')',
                                           color: 'white',
                                           ...provided.draggableProps.style,
