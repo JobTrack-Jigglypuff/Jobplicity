@@ -45,7 +45,6 @@ function AppFormList() {
 
   useEffect(() => {
     if (editAppMode) {
-      console.log('itemData.company_name', itemData.company_name);
       companyName.current.value = itemData.company_name;
       jobTitle.current.value = itemData.job_title;
       description.current.value = itemData.description;
@@ -62,6 +61,7 @@ function AppFormList() {
     //Make a fetch request to DB and store app data
     const formData = {
       user_id: userID,
+      app_id: itemData.app_id,
       company_name: companyName.current?.value,
       job_title: jobTitle.current?.value,
       description: description.current?.value,
@@ -72,17 +72,30 @@ function AppFormList() {
       contact: contact.current?.value,
       stage: stage.current?.value,
     };
-    console.log('formData', formData);
 
-    fetch('http://localhost:3000/newapp', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((data) => dispatch(setData(data)));
+    if (!editAppMode) {
+      console.log('FETCH REQUEST FOR NEW APP');
+      fetch('http://localhost:3000/newapp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((res) => res.json())
+        .then((data) => dispatch(setData(data)));
+    } else {
+      console.log('application formData', formData);
+      fetch('http://localhost:3000/update', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((res) => res.json())
+        .then((data) => dispatch(setData(data)));
+    }
 
     // alert('Application created!');
     // setOpen(false);
@@ -123,7 +136,6 @@ function AppFormList() {
           justifyContent: 'center',
         }}
       >
-        {console.log('itemData', itemData)}
         <TextField
           id='company'
           label='Company Name'
