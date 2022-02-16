@@ -17,12 +17,13 @@ const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
 	...draggableStyle
 })
 
-const HorizontalDragDrop = () => {
 
+const HorizontalDragDrop = () => {
+	
   return(
     <div>
         <VerticalList />
-        <VerticalList />
+        
     </div>
   );
 };

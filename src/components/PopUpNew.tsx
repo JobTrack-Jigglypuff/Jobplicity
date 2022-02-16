@@ -37,10 +37,10 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
           aria-label="close"
           onClick={onClose}
           sx={{
-            position: 'relative',
-            right: 8,
+            position:'fixed',
+            right: 10,
             top: 8,
-            color: (theme) => theme.palette.grey[500],
+            color: (theme) => theme.palette.grey[700],
           }}
         >
           <CloseIcon />
@@ -50,7 +50,7 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
   );
 };
 
-function PopUp() {
+function PopUpNew() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -63,7 +63,7 @@ function PopUp() {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Open dialog
+        +
       </Button>
       <BootstrapDialog
         onClose={handleClose}
@@ -74,7 +74,7 @@ function PopUp() {
           Application Form
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <AppFormList />
+          <AppFormList setOpen={setOpen}/>
         </DialogContent>
       </BootstrapDialog>
     </div>
@@ -82,4 +82,4 @@ function PopUp() {
 }
 
 
-export default PopUp;
+export default PopUpNew;

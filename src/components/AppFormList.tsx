@@ -6,25 +6,26 @@ import Button from '@mui/material/Button';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Divider } from '@material-ui/core';
 import SaveIcon from '@mui/icons-material/Save';
-import DeleteIcon from '@mui/icons-material/Delete'
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
-function AppFormList() {
+function AppFormList({setOpen}:{setOpen:React.Dispatch<React.SetStateAction<boolean>>}) {
     const [stages, setStages] = React.useState('');
     
-    const handleClick = () => {
-        alert('Data Submitted!');
+    const handleClick = () => {      
+        alert('Application created!') 
+        setOpen(false);
     }
 
     const handleCancel = () => {
-        alert ('Cancelled Data!');
+        setOpen(false);
     }
     const handleChange = (event: SelectChangeEvent) => {
         setStages(event.target.value as string);
       };
     
     //fetch post data to database
-
+   
 
   return (
     <Box
@@ -69,7 +70,7 @@ function AppFormList() {
         variant="contained"
         style={{width:'20ch',height:'8ch', padding:'10px', margin:'50px'}}
         >
-        Cancel
+          Cancel       
         </Button>
     </Box>
     <Box>
