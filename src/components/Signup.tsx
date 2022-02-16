@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import TextField from './TextField';
 import { SignupForm } from '../../interfaces';
 import { setSignup } from '../Redux/slice/signupSlice';
-import { setData } from '../Redux/slice/dashBoardSlice';
+import { setData, setFullName } from '../Redux/slice/dashBoardSlice';
 
 const Signup = () => {
   const [userError, useUserError] = useState(false);
@@ -40,6 +40,7 @@ const Signup = () => {
       .then((data: AxiosResponse<any>) => {
         console.log(data);
         if (data.status === 201) {
+          dispatch(setFullName(data.data.fullname));
           dispatch(
             setData({
               applied: [],

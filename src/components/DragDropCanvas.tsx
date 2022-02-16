@@ -2,6 +2,11 @@ import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
+import {
+  setPopUp,
+  setEditApp,
+  setItemData,
+} from '../Redux/slice/dashBoardSlice';
 
 import {
   DragDropContext,
@@ -76,6 +81,8 @@ const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
 
 function DragDropCanvas() {
   const dashboardState = useAppSelector((state) => state.dashboard.data);
+  const itemData = useAppSelector((state) => state.dashboard.itemData);
+  const dispatch = useAppDispatch();
   const [columns, setColumns] = useState<React.SetStateAction<any>>(
     mapAppsToColumns(appColumns, dashboardState)
   );
@@ -94,9 +101,15 @@ function DragDropCanvas() {
     return appColumns;
   }
 
-  // useEffect(() => {
-  //   console.log('dashboardState useeffect', dashboardState);
-  // }, [dashboardState]);
+  function handleAppClick(app: any) {
+    console.log('from card click', app);
+    dispatch(setItemData(app));
+    dispatch(setEditApp(true));
+    dispatch(setPopUp(true));
+  }
+  useEffect(() => {
+    console.log('itemData', itemData);
+  }, [itemData]);
 
   const onDragEnd = (result: DropResult, columns: any, setColumns: any) => {
     if (!result.destination) return;
@@ -218,10 +231,9 @@ function DragDropCanvas() {
                                               Math.floor(Math.random() * 200) +
                                               ')',
                                           color: 'white',
-                                          fontWeight: 'bold',
-                                          fontSize: 'medium',
                                           ...provided.draggableProps.style,
                                         }}
+                                        onClick={() => handleAppClick(item)}
                                       >
                                         {item.company_name}
                                       </div>
