@@ -10,6 +10,7 @@ const initialState = {
     rejected: [],
     user_id: NaN,
   },
+  fullName: '',
   popup: false,
   editApp: false,
   itemData: {
@@ -43,11 +44,14 @@ export const dashBoardSlice = createSlice({
     setItemData: (state, action: PayloadAction<any>) => {
       state.itemData = action.payload;
     },
+    setFullName: (state, action: PayloadAction<any>) => {
+      state.fullName = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setData, setPopUp, setItemData, setEditApp } =
+export const { setData, setPopUp, setItemData, setEditApp, setFullName } =
   dashBoardSlice.actions;
 
 export default dashBoardSlice.reducer;
