@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import TextField from './TextField';
 import { LoginForm } from '../../interfaces';
 import { setSignup } from '../Redux/slice/signupSlice';
+import { setData } from '../Redux/slice/dashBoardSlice';
 
 const Login = () => {
   const [error, useError] = useState(false);
@@ -26,8 +27,11 @@ const Login = () => {
     axios
       .post<LoginForm>('http://localhost:3000/login', body)
       .then((data: AxiosResponse<any>) => {
-        console.log(data);
-        if (data.status === 201) navigate('/home', { replace: true });
+        console.log('data.status', data.status);
+        if (data.status === 201) {
+          dispatch(setData(data.data));
+          navigate('/home', { replace: true });
+        }
       })
       .catch((err: AxiosError) => {
         useError(true);
