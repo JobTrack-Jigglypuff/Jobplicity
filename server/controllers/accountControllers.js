@@ -48,14 +48,20 @@ controller.newAccount = async (req, res, next) => {
     console.log('data', data);
     if (data) {
       return next();
+    } else {
+      res.local.response = {
+        status: 409,
+        message: 'User Already exists',
+      };
+      return next();
     }
-    return next('Unable to create new account');
+    return next('Data Error');
   } catch (error) {
     return next({
       log: `controller.newAccount ERROR found`,
-      status: 500,
+      status: 409,
       message: {
-        err: 'Error occurred in controller.newAccount. Check the server logs.',
+        err: 'User Already exists.',
       },
     });
   }
@@ -95,15 +101,11 @@ controller.verifyAccount = async (req, res, next) => {
     await bcrypt.compare(userPass, dbData[0].password, (err, ok) => {
       if (ok) {
         console.log('bcrypt comparison check OK');
-        res.locals.data = {
-          verified: true,
-          user_id: dbData[0].user_id,
-        };
+        res.locals.verified = true;
+        res.locals.data = { user_id: dbData[0].user_id };
         return next();
       } else {
-        res.locals.data = {
-          verified: false,
-        };
+        res.locals.verified = false;
         return next();
       }
     });
