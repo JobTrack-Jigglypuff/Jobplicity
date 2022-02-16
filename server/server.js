@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const controller = require('./controllers/accountControllers');
 const app = express();
 const PORT = 3000;
 const accountController = require('./controllers/accountControllers');
