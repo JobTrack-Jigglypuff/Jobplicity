@@ -48,6 +48,18 @@ app.post(
   }
 );
 
+app.post(
+  '/newapp',
+  appController.createApp,
+  appController.getApp,
+  (req, res) => {
+    if (res.locals.response) {
+      res.status(409).json('Unable to create application');
+    }
+    res.status(201).json(res.locals.data);
+  }
+);
+
 // route handler to respond with main app
 app.get('/', (req, res) => {
   res.status(200).json('Welcome to Jobplicity Backend!');
