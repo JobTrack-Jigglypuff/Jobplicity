@@ -13,6 +13,22 @@ appController.getApp = async (req, res, next) => {
 
     const results = await db.query(applications, [user_id]);
     res.locals.applications = results.rows;
+    const data = {
+      "user_id": user_id,
+      "applied": [],
+      "phone": [],
+      "interview": [],
+      "rejected":[],
+      "offer": []
+    };
+
+       res.locals.applications.forEach(application =>{
+      data[application.stage].push(application)
+    });
+
+    res.locals.data = data;
+    console.log(res.locals.data);
+
     next();
   } catch (error) {
     return next({

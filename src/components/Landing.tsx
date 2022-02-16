@@ -1,23 +1,19 @@
 import * as React from 'react';
 import HorizontalDragDrop from './HorizontalDragDrop';
-import PopUp from './PopUp';
+import PopUpNew from './PopUpNew';
+
 
 function Home() {
+
   return (
-    <>
-      <div
-        style={{
-          display: 'inline-flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          height: '100%',
-          padding: '10px',
-          margin: '10px',
-        }}
-      >
+    <>    
+    <div style={{display:'inline-flex', flexDirection:'row', justifyContent:'center', height:'100%', padding:'10px', margin:'10px'}}>
         <HorizontalDragDrop />
-      </div>
-      <PopUp />
+    </div>
+    <div style={{display:'inline-flex', flexDirection:'row', justifyContent:'right', height:'100%', padding:'10px', margin:'10px', borderRadius:8}}>
+        <PopUpNew />
+    </div>
+    
     </>
   );
 }

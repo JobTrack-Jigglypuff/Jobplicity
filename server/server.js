@@ -34,8 +34,7 @@ app.post(
   accountController.verifyAccount,
   appController.getApp,
   (req, res) => {
-    if (!res.locals.data.verified) res.sendStatus(403);
-    res.status(200).json(res.locals.applications);
+    res.status(201).json(res.locals.data);
   }
 );
 
