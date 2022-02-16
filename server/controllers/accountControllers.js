@@ -55,10 +55,7 @@ controller.newAccount = async (req, res, next) => {
       };
       return next();
     }
-<<<<<<< HEAD
     return next('Data Error');
-=======
->>>>>>> dev
   } catch (error) {
     return next({
       log: `controller.newAccount ERROR found`,
