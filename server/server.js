@@ -28,6 +28,9 @@ app.post(
   accountController.hash,
   accountController.newAccount,
   (req, res) => {
+    if (res.locals.response) {
+      res.status(res.locals.response.status).json(res.locals.response.message);
+    }
     res.status(201).json(res.locals.newUser);
   }
 );
