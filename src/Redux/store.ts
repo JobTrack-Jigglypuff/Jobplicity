@@ -5,7 +5,7 @@ import dashBoardReducer from './slice/dashBoardSlice';
 export const store = configureStore({
   reducer: {
     signup: signupReducer,
-    dashBoard: dashBoardReducer
+    dashboard: dashBoardReducer,
   },
 });
 

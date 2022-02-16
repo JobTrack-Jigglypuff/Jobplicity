@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Component, useEffect, useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from '@emotion/styled';
-import VerticalList from './VerticalDragDrop';
 
 //style for drag
 const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
@@ -19,7 +18,7 @@ const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
 const HorizontalDragDrop = () => {
   return (
     <div>
-      <VerticalList />
+      {/* <VerticalList /> */}
       {/* <VerticalList /> */}
     </div>
   );
