@@ -34,7 +34,7 @@ app.post(
   accountController.verifyAccount,
   appController.getApp,
   (req, res) => {
-    res.status(201).json(res.locals.applications);
+    res.status(201).json(res.locals.data);
   }
 );
 
