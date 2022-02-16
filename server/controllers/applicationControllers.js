@@ -5,7 +5,7 @@ const appController = {};
 //Get applications
 appController.getApp = async (req, res, next) => {
   try {
-    if (!res.locals.data.verified) return next();
+    if (!res.locals.verified) return next();
 
     const { user_id } = res.locals.data;
 
@@ -14,22 +14,22 @@ appController.getApp = async (req, res, next) => {
     const results = await db.query(applications, [user_id]);
     res.locals.applications = results.rows;
     const data = {
-      "user_id": user_id,
-      "applied": [],
-      "phone": [],
-      "interview": [],
-      "rejected":[],
-      "offer": []
+      user_id: user_id,
+      applied: [],
+      phone: [],
+      interview: [],
+      rejected: [],
+      offer: [],
     };
 
-       res.locals.applications.forEach(application =>{
-      data[application.stage].push(application)
+    res.locals.applications.forEach((application) => {
+      data[application.stage].push(application);
     });
 
     res.locals.data = data;
     console.log(res.locals.data);
 
-    next();
+    return next();
   } catch (error) {
     return next({
       log: `controller.getApp ERROR found`,
