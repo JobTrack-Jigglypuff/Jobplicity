@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #eae7dc;
+  background-color: #e0ece4;
 
   .login-container,
   .signup-container {
@@ -16,18 +16,31 @@
       font-size: 2rem;
       font-weight: 600;
       margin-bottom: 1.5rem;
-      color: #8e8d8a;
+      color: #f38181;
+    }
+
+    .error {
+      // label of the textfield & when focused
+    .MuiFormLabel-root,
+    .MuiFormLabel-root.Mui-focused {
+      color: red !important;
+    }
+
+    // outline of the textfield
+    .MuiOutlinedInput-notchedOutline {
+      border-color: red !important;
+    }
     }
 
     // label of the textfield & when focused
     .MuiFormLabel-root,
     .MuiFormLabel-root.Mui-focused {
-      color: #8e8d8a !important;
+      color: #40514e !important;
     }
 
     // outline of the textfield
     .MuiOutlinedInput-notchedOutline {
-      border-color: #8e8d8a !important;
+      border-color: #40514e !important;
     }
 
     // input text of the textfield
@@ -48,14 +61,28 @@
 
     .button-container {
       display: flex;
-      justify-content: space-between;
-      width: 75%;
+      justify-content: space-around;
+      width: 80%;
       margin-top: 20px;
+
+      .already-button {
+        display: flex;
+        cursor: pointer;
+        color: #ff9292;
+        align-items: center;
+        text-align: start;
+        font-weight: 100;
+        width: 50%;
+
+        &:hover {
+          color: #e6a4b4;
+        }
+      }
 
       .login-button,
       .signup-button {
         display: flex;
-        background-color: #e98074;
+        background-color: #ff9999;
         padding: 20px 25px;
         border-radius: 5px;
         cursor: pointer;
@@ -63,7 +90,7 @@
         font-weight: 100;
 
         &:hover {
-          background-color: #e85a4f;
+          background-color: #e6a4b4;
         }
 
         &:active {

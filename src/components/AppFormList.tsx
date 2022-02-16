@@ -176,7 +176,6 @@ function AppFormList({
         </Select>
         <Divider />
         <Button
-          color='secondary'
           onClick={handleClick}
           startIcon={<SaveIcon />}
           variant='contained'
@@ -185,12 +184,12 @@ function AppFormList({
             height: '8ch',
             padding: '10px',
             margin: '50px',
+            backgroundColor: '#ff9999',
           }}
         >
           Save
         </Button>
         <Button
-          color='primary'
           onClick={handleCancel}
           startIcon={<DeleteIcon />}
           variant='contained'
@@ -199,6 +198,7 @@ function AppFormList({
             height: '8ch',
             padding: '10px',
             margin: '50px',
+            backgroundColor: '#40514e',
           }}
         >
           Cancel

@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const { resourceLimits } = require('worker_threads');
 const db = require('../database');
 
+
 const controller = {};
 
 //hash a user inputted password
@@ -47,7 +48,7 @@ controller.newAccount = async (req, res, next) => {
 
     console.log('data', data);
     if (data) {
-      res.locals.newUser = { user_id: data[0].user_id };
+      res.locals.newUser = { user_id: data[0].user_id, fullname: data[0].fullname };
       return next();
     } else {
       res.local.response = {
@@ -76,8 +77,7 @@ controller.getAccount = async (req, res, next) => {
 
     const results = await db.query(text, [username]);
     const data = results.rows;
-
-    res.locals.accInfo = {
+      res.locals.accInfo = {
       userPass: password,
       dbData: data,
     };
@@ -103,7 +103,7 @@ controller.verifyAccount = async (req, res, next) => {
       if (ok) {
         console.log('bcrypt comparison check OK');
         res.locals.verified = true;
-        res.locals.data = { user_id: dbData[0].user_id };
+        res.locals.data = { user_id: dbData[0].user_id, fullname: dbData[0].fullname};
         return next();
       } else {
         res.locals.verified = false;
@@ -119,6 +119,11 @@ controller.verifyAccount = async (req, res, next) => {
       },
     });
   }
+};
+
+controller.logout = (req, res, next) => {
+  //clear cookies in controller if we setup
+  next();
 };
 
 module.exports = controller;

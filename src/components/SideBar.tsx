@@ -16,35 +16,19 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import { ListItemText } from '@material-ui/core';
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+import Logout from './Logout';
+import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    ...(theme.mixins.toolbar as BaseCSSProperties),
-    justifyContent: 'flex-end',
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  backgroundColor: '#8785A2',
+  ...(theme.mixins.toolbar as BaseCSSProperties),
+  justifyContent: 'flex-end',
 }));
 
 const drawerWidth = 200;
-
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
-  open?: boolean;
-}>(({ theme, open }) => ({
-  flexGrow: 1,
-  padding: theme.spacing(3),
-  transition: theme.transitions.create('margin', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  marginLeft: `-${drawerWidth}px`,
-  ...(open && {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  }),
-}));
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -79,28 +63,51 @@ export default function SideBar() {
     setOpen(false);
   };
 
+  //handling sidebar route
+  const navigate = useNavigate();
+  const handleBoard = () => {
+    setTimeout(() => {
+      navigate('/home');
+    }, 1000);
+  };
+  const handleActivities = () => {
+    setTimeout(() => {
+      navigate('/activities');
+    }, 1000);
+  };
+  const handleContact = () => {
+    setTimeout(() => {
+      navigate('/contact');
+    }, 1000);
+  };
+
   return (
-    <Box sx={{ display: 'flex', bgcolor: '#bbdefb' }}>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
+      <AppBar position='fixed' open={open}>
+        <Toolbar sx={{ backgroundColor: '#8785A2' }}>
           <IconButton
-            color="inherit"
-            aria-label="open drawer"
+            color='inherit'
+            aria-label='open drawer'
             onClick={handleDrawerOpen}
-            edge="start"
+            edge='start'
             sx={{ mr: 2, ...(open && { display: 'none' }) }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant='h6' noWrap component='div'>
             My Board
           </Typography>
-          <Typography variant="h6" align='center' component="div" sx={{ flexGrow: 1 }}>
-                Welcome to Jobplicity!
+          <Typography
+            variant='h6'
+            align='center'
+            component='div'
+            sx={{ flexGrow: 1 }}
+          >
+            Welcome to Jobplicity!
           </Typography>
           <Typography variant='h6'>
-            <Button color="inherit">SignOut</Button>
+            <Logout />
           </Typography>
         </Toolbar>
       </AppBar>
@@ -113,28 +120,33 @@ export default function SideBar() {
             boxSizing: 'border-box',
           },
         }}
-        variant="persistent"
-        anchor="left"
+        variant='persistent'
+        anchor='left'
         open={open}
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'ltr' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          {['Board', 'Activities', 'Contact'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+        <List sx={{ backgroundColor: '#e0ece4', height: '100vh' }}>
+          <ListItem button key={'Board'} onClick={handleBoard}>
+            <ListItemText primary={'Board'} />
+          </ListItem>
+          <ListItem button key={'Activities'} onClick={handleActivities}>
+            <ListItemText primary={'Activities'} />
+          </ListItem>
+          <ListItem button key={'Contact'} onClick={handleContact}>
+            <ListItemText primary={'Contact'} />
+          </ListItem>
         </List>
-        <Divider />        
+        <Divider />
       </Drawer>
-      <Main open={open}>
-        
-      </Main>
     </Box>
   );
 }

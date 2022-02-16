@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
-
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 
 import {
@@ -147,8 +146,9 @@ function DragDropCanvas() {
         flexDirection: 'row',
         justifyContent: 'center',
         height: '100%',
-        padding: '10px',
+        padding: '1em',
         margin: '10px',
+        marginTop: '10%',
       }}
     >
       <div
@@ -182,7 +182,7 @@ function DragDropCanvas() {
                             ref={provided.innerRef}
                             style={{
                               background: snapshot.isDraggingOver
-                                ? 'lightblue'
+                                ? 'lightpink'
                                 : 'lightgrey',
                               padding: 4,
                               width: 250,
@@ -207,10 +207,19 @@ function DragDropCanvas() {
                                           padding: 16,
                                           margin: '0 0 8px 0',
                                           minHeight: '50px',
+                                          borderRadius: '15px',
                                           backgroundColor: snapshot.isDragging
-                                            ? '#263B4A'
-                                            : '#456C86',
+                                            ? '#456C86'
+                                            : 'rgb(' +
+                                              Math.floor(Math.random() * 200) +
+                                              ',' +
+                                              Math.floor(Math.random() * 200) +
+                                              ',' +
+                                              Math.floor(Math.random() * 200) +
+                                              ')',
                                           color: 'white',
+                                          fontWeight: 'bold',
+                                          fontSize: 'medium',
                                           ...provided.draggableProps.style,
                                         }}
                                       >
