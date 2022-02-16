@@ -18,6 +18,10 @@ import { ListItemText } from '@material-ui/core';
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
 import Logout from './Logout';
 import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+import { useAppSelector } from '../Redux/hooks';
+>>>>>>> dev
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -54,6 +58,8 @@ const AppBar = styled(MuiAppBar, {
 export default function SideBar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  const fullName = useAppSelector((state) => state.dashboard.fullName);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -96,7 +102,7 @@ export default function SideBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap component='div'>
-            My Board
+            {`${fullName.toUpperCase()}'S BOARD`}
           </Typography>
           <Typography
             variant='h6'

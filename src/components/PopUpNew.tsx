@@ -7,6 +7,11 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import AppFormList from './AppFormList';
+<<<<<<< HEAD
+=======
+import { useAppDispatch, useAppSelector } from '../Redux/hooks';
+import { setPopUp } from '../Redux/slice/dashBoardSlice';
+>>>>>>> dev
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -55,13 +60,17 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
 };
 
 function PopUpNew() {
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
+  const open = useAppSelector((state) => state.dashboard.popup);
+  const dispatch = useAppDispatch();
 
   const handleClickOpen = () => {
-    setOpen(true);
+    // setOpen(true);
+    dispatch(setPopUp(true));
   };
   const handleClose = () => {
-    setOpen(false);
+    // setOpen(false);
+    dispatch(setPopUp(false));
   };
 
   return (
@@ -82,7 +91,7 @@ function PopUpNew() {
           Application Form
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <AppFormList setOpen={setOpen} />
+          <AppFormList />
         </DialogContent>
       </BootstrapDialog>
     </div>
