@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
-
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 
 import {
@@ -83,10 +82,10 @@ function DragDropCanvas() {
 
   const [todo, setTodo] = useState(listItems);
 
-  // useEffect(() => {
-  //   console.log('dashboardState appcolumns useeffect', dashboardState);
-  //   mapAppsToColumns(appColumns, dashboardState);
-  // }, []);
+  useEffect(() => {
+    // console.log('dashboardState appcolumns useeffect', dashboardState);
+    setColumns(mapAppsToColumns(appColumns, dashboardState));
+  }, [dashboardState]);
 
   function mapAppsToColumns(appColumns: any, userApps: any) {
     for (const column in appColumns) {
@@ -95,6 +94,7 @@ function DragDropCanvas() {
     return appColumns;
   }
 
+  
   // useEffect(() => {
   //   console.log('dashboardState useeffect', dashboardState);
   // }, [dashboardState]);
@@ -147,8 +147,9 @@ function DragDropCanvas() {
         flexDirection: 'row',
         justifyContent: 'center',
         height: '100%',
-        padding: '10px',
+        padding: '1em',
         margin: '10px',
+        marginTop:'10%'
       }}
     >
       <div
@@ -208,8 +209,9 @@ function DragDropCanvas() {
                                           margin: '0 0 8px 0',
                                           minHeight: '50px',
                                           backgroundColor: snapshot.isDragging
-                                            ? '#263B4A'
-                                            : '#456C86',
+                                            ? '#456C86'
+                                            : "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," +  
+                                            Math.floor(Math.random() * 255) + ")",
                                           color: 'white',
                                           ...provided.draggableProps.style,
                                         }}

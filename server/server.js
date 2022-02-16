@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const controller = require('./controllers/accountControllers');
 const app = express();
 const PORT = 3000;
 const accountController = require('./controllers/accountControllers');
@@ -45,6 +46,18 @@ app.post(
     else {
       res.status(201).json(res.locals.data);
     }
+  }
+);
+
+app.post(
+  '/newapp',
+  appController.createApp,
+  appController.getApp,
+  (req, res) => {
+    if (res.locals.response) {
+      res.status(409).json('Unable to create application');
+    }
+    res.status(201).json(res.locals.data);
   }
 );
 

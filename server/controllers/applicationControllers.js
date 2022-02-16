@@ -58,36 +58,43 @@ appController.createApp = async (req, res, next) => {
       stage,
     } = req.body;
 
+    
     const createQuery = `
-      INSERT INTO applications(
-        user_id, 
-        company_name, 
-        job_title, 
-        description, 
-        url, 
-        salary, 
-        location, 
-        deadline, 
-        contact, 
-        stage) 
+    INSERT INTO applications(
+      user_id, 
+      company_name, 
+      job_title, 
+      description, 
+      url, 
+      salary, 
+      location, 
+      deadline, 
+      contact, 
+      stage) 
       VALUES (($1),($2),($3),($4),($5),($6),($7),($8),($9), ($10)) 
       RETURNING *`;
-
-    const dbParams = [
-      user_id,
-      company_name,
-      job_title,
-      description,
-      url,
-      salary,
-      location,
-      deadline,
-      contact,
-      stage,
-    ];
-    const results = await db.query(createQuery, dbParams);
-    res.locals.createApp = results;
-    next();
+      
+      const dbParams = [
+        user_id,
+        company_name,
+        job_title,
+        description,
+        url,
+        salary,
+        location,
+        deadline,
+        contact,
+        stage,
+      ];
+      const results = await db.query(createQuery, dbParams);
+      if(!results) res.locals.response = true;
+      else {
+        res.locals.response = false;
+        res.locals.createApp = results;
+        res.locals.data = {user_id};
+        res.locals.verified = true;
+    };
+    return next();
   } catch (error) {
     return next({
       log: `controller.createApp ERROR found`,
