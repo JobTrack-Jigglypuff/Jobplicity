@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 const app = express();
 const PORT = 3000;
@@ -9,6 +10,9 @@ const db = require('./database');
 /* handle parsing request body
  */
 app.use(express.json());
+
+// handle cors
+app.use(cors({ credentials: true, origin: 'http://localhost:8080' }));
 
 /**
  * handle requests for static files
