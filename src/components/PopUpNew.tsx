@@ -8,12 +8,15 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import AppFormList from './AppFormList';
 
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
+    backgroundColor:'#EAE7DC'
   },
   '& .MuiDialogActions-root': {
     padding: theme.spacing(1),
+    
   },
 }));
 
@@ -30,7 +33,7 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
   console.log(children);
 
   return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+    <DialogTitle sx={{ m: 0, p: 2, backgroundColor:'#325670', color:'white'}} {...other}>
       {children}
       {onClose ? (
         <IconButton
@@ -62,7 +65,7 @@ function PopUpNew() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button sx={{backgroundColor:'#e98074'}} variant="outlined" onClick={handleClickOpen}>
         +
       </Button>
       <BootstrapDialog
