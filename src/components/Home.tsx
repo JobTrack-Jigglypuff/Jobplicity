@@ -11,7 +11,7 @@ function Home() {
   return (
     <>    
       <div className='home_page'>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Container maxWidth="xl">
         <Stack direction='column'>
         <SideBar />

@@ -21,8 +21,8 @@ const HorizontalDragDrop = () => {
 
   return(
     <div>
-        <VerticalList />
-        <VerticalList />
+      <VerticalList />
+      {/* <VerticalList /> */}
     </div>
   );
 };

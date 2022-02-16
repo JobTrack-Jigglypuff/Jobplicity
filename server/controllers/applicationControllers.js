@@ -5,12 +5,30 @@ const appController = {};
 //Get applications
 appController.getApp = async (req, res, next) => {
   try {
+    if (!res.locals.data.verified) return next();
+
     const { user_id } = res.locals.data;
 
     const applications = `SELECT * FROM "public"."applications" WHERE user_id = $1`;
 
     const results = await db.query(applications, [user_id]);
     res.locals.applications = results.rows;
+    const data = {
+      "user_id": user_id,
+      "applied": [],
+      "phone": [],
+      "interview": [],
+      "rejected":[],
+      "offer": []
+    };
+
+       res.locals.applications.forEach(application =>{
+      data[application.stage].push(application)
+    });
+
+    res.locals.data = data;
+    console.log(res.locals.data);
+
     next();
   } catch (error) {
     return next({
@@ -82,11 +100,9 @@ appController.createApp = async (req, res, next) => {
 };
 
 //Update applications
-
 // UPDATE table_name
 // SET column1 = value1,
 //     column2 = value2,
-
 // WHERE condition
 // RETURNING *
 

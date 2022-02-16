@@ -101,7 +101,7 @@ export default function SideBar() {
                 Welcome to Jobplicity!
           </Typography>
           <Typography variant='h6'>
-            <Logout />
+            <Button color="inherit">SignOut</Button>
           </Typography>
         </Toolbar>
       </AppBar>
