@@ -12,3 +12,8 @@ export interface SignupForm {
 export interface SignupState {
   isSignup: boolean;
 };
+
+export interface dashBoardState {
+  isPopUp: boolean;
+};
+

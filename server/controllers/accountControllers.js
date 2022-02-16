@@ -65,7 +65,6 @@ controller.newAccount = async (req, res, next) => {
 controller.getAccount = async (req, res, next) => {
   try {
     const { username, password } = req.body; // for sql WHERE
-    
     const text = `SELECT user_id, username, password, fullname FROM public.accounts WHERE username = $1`;
 
     const results = await db.query(text, [username]);
@@ -102,7 +101,10 @@ controller.verifyAccount = async (req, res, next) => {
         };
         return next();
       } else {
-        res.send(err);
+        res.locals.data = {
+          verified: false,
+        };
+        return next();
       }
     });
   } catch (error) {

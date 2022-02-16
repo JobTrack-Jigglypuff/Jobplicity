@@ -7,18 +7,20 @@ import Stack from '@mui/material/Stack';
 import AppForm from './AppFormList';
 
 function Home() {
+
   return (
-    <>
+    <>    
       <div>
-        <CssBaseline />
-        <Container maxWidth='xl'>
-          <Stack direction='column'>
-            <SideBar />
-            <Landing />
-            {/* <AppForm /> */}
-          </Stack>
-        </Container>
-      </div>
+      <CssBaseline />
+      <Container maxWidth="xl">
+        <Stack direction='column'>
+        <SideBar />
+        <Landing />
+        {/* <AppForm /> */}
+        </Stack> 
+
+      </Container>
+    </div>
     </>
   );
 }
