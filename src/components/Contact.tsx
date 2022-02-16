@@ -1,5 +1,4 @@
 import * as React from 'react';
-import '../styles/LogOut.scss';
 import SideBar from './SideBar'
 import {Link} from 'react-router-dom';
 import '../styles/contact.scss';

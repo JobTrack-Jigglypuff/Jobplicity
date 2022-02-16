@@ -1,17 +1,29 @@
 import * as React from 'react';
-import { BrowserRouter as Router, useNavigate} from "react-router-dom";
-import '../styles/LogOut.scss';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../Redux/hooks';
+import { setSignup } from '../Redux/slice/signupSlice';
+import Button from '@mui/material/Button';
 
 const SignOut = () => {
-    const navigate = useNavigate();
-    const handleClick = () => {
-      setTimeout(()=>{navigate('/')}, 1000);
-    }
-    return (
-      <button className='signout-button' type="button" onClick={handleClick}>
-        Sign Out 
-      </button>
-    );
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const handleClick = () => {
+    dispatch(setSignup(false));
+    setTimeout(() => {
+      navigate('/');
+    }, 1000);
+  };
+  return (
+    <>
+      <Button
+        sx={{ backgroundColor: '#ff9999' }}
+        variant='contained'
+        onClick={handleClick}
+      >
+        Sign Out
+      </Button>
+    </>
+  );
 };
-  
-  export default SignOut;
+
+export default SignOut;
