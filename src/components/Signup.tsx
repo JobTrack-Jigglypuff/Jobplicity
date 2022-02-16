@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import TextField from './TextField';
 import { SignupForm } from '../../interfaces';
 import { setSignup } from '../Redux/slice/signupSlice';
+import { setData } from '../Redux/slice/dashBoardSlice';
 
 const Signup = () => {
   const [userError, useUserError] = useState(false);
@@ -38,7 +39,19 @@ const Signup = () => {
       .post<SignupForm>('http://localhost:3000/signup', body)
       .then((data: AxiosResponse<any>) => {
         console.log(data);
-        if (data.status === 201) navigate('/home', { replace: true });
+        if (data.status === 201) {
+          dispatch(
+            setData({
+              applied: [],
+              interview: [],
+              offer: [],
+              phone: [],
+              rejected: [],
+              user_id: data.data.user_id,
+            })
+          );
+          navigate('/home', { replace: true });
+        }
       })
       .catch((err: AxiosError) => {
         useUserError(true);
