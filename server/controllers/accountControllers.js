@@ -47,6 +47,7 @@ controller.newAccount = async (req, res, next) => {
 
     console.log('data', data);
     if (data) {
+      res.locals.newUser = { user_id: data[0].user_id };
       return next();
     } else {
       res.local.response = {

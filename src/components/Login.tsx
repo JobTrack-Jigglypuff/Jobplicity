@@ -27,7 +27,6 @@ const Login = () => {
     axios
       .post<LoginForm>('http://localhost:3000/login', body)
       .then((data: AxiosResponse<any>) => {
-        console.log('data.status', data.status);
         if (data.status === 201) {
           dispatch(setData(data.data));
           navigate('/home', { replace: true });

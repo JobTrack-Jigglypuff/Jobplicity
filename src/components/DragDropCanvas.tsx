@@ -83,10 +83,10 @@ function DragDropCanvas() {
 
   const [todo, setTodo] = useState(listItems);
 
-  // useEffect(() => {
-  //   console.log('dashboardState appcolumns useeffect', dashboardState);
-  //   mapAppsToColumns(appColumns, dashboardState);
-  // }, []);
+  useEffect(() => {
+    // console.log('dashboardState appcolumns useeffect', dashboardState);
+    setColumns(mapAppsToColumns(appColumns, dashboardState));
+  }, [dashboardState]);
 
   function mapAppsToColumns(appColumns: any, userApps: any) {
     for (const column in appColumns) {
