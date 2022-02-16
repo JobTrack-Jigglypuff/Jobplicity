@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../Redux/hooks';
-import '../styles/LogOut.scss';
 import { setSignup } from '../Redux/slice/signupSlice';
 import Button from '@mui/material/Button';
 

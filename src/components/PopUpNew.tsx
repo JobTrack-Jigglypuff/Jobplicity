@@ -10,6 +10,7 @@ import AppFormList from './AppFormList';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { setPopUp } from '../Redux/slice/dashBoardSlice';
 
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
@@ -17,6 +18,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
   '& .MuiDialogActions-root': {
     padding: theme.spacing(1),
+    
   },
 }));
 
