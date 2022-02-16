@@ -6,14 +6,15 @@ const appController = {};
 appController.getApp = async (req, res, next) => {
   try {
     if (!res.locals.verified) return next();
-
-    const { user_id } = res.locals.data;
+      const { user_id, fullname } = res.locals.data;
+    console.log('fullname', fullname)
 
     const applications = `SELECT * FROM "public"."applications" WHERE user_id = $1`;
 
     const results = await db.query(applications, [user_id]);
     res.locals.applications = results.rows;
     const data = {
+      fullname: fullname,
       user_id: user_id,
       applied: [],
       phone: [],
