@@ -36,4 +36,19 @@ export interface DashBoardState {
     rejected: Application[];
     user_id: number;
   };
+  popup: boolean;
+  editApp: boolean;
+  itemData: {
+    app_id: number;
+    company_name: string;
+    contact: string;
+    deadline: string;
+    description: string;
+    job_title: string;
+    location: string;
+    salary: string;
+    stage: string;
+    url: string;
+    user_id: number;
+  };
 }
