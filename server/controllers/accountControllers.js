@@ -48,8 +48,17 @@ controller.newAccount = async (req, res, next) => {
     console.log('data', data);
     if (data) {
       return next();
+    } else {
+      res.local.response = {
+        status: 409,
+        message: 'User Already exists',
+      };
+      return next();
     }
+<<<<<<< HEAD
     return next('Data Error');
+=======
+>>>>>>> dev
   } catch (error) {
     return next({
       log: `controller.newAccount ERROR found`,
