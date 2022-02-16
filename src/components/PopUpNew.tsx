@@ -8,15 +8,13 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import AppFormList from './AppFormList';
 
-
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
-    backgroundColor:'#EAE7DC'
+    backgroundColor: '#e0ece4',
   },
   '& .MuiDialogActions-root': {
     padding: theme.spacing(1),
-    
   },
 }));
 
@@ -33,14 +31,17 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
   console.log(children);
 
   return (
-    <DialogTitle sx={{ m: 0, p: 2, backgroundColor:'#325670', color:'white'}} {...other}>
+    <DialogTitle
+      sx={{ m: 0, p: 2, backgroundColor: '#8785A2', color: 'white' }}
+      {...other}
+    >
       {children}
       {onClose ? (
         <IconButton
-          aria-label="close"
+          aria-label='close'
           onClick={onClose}
           sx={{
-            position:'fixed',
+            position: 'fixed',
             right: 10,
             top: 8,
             color: (theme) => theme.palette.grey[700],
@@ -65,24 +66,27 @@ function PopUpNew() {
 
   return (
     <div>
-      <Button sx={{backgroundColor:'#e98074'}} variant="outlined" onClick={handleClickOpen}>
+      <Button
+        sx={{ backgroundColor: '#ff9999' }}
+        variant='contained'
+        onClick={handleClickOpen}
+      >
         +
       </Button>
       <BootstrapDialog
         onClose={handleClose}
-        aria-labelledby="App-Form"
+        aria-labelledby='App-Form'
         open={open}
       >
-        <BootstrapDialogTitle id="App-Form" onClose={handleClose}>
+        <BootstrapDialogTitle id='App-Form' onClose={handleClose}>
           Application Form
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <AppFormList setOpen={setOpen}/>
+          <AppFormList setOpen={setOpen} />
         </DialogContent>
       </BootstrapDialog>
     </div>
   );
 }
-
 
 export default PopUpNew;

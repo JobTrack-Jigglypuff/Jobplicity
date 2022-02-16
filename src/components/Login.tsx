@@ -37,6 +37,16 @@ const Login = () => {
       });
   };
 
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
+    console.log('inside keydown func');
+    if (e.key === 'Enter') {
+      console.log('pressed enter key');
+      e.preventDefault();
+      e.stopPropagation();
+      handleLogin();
+    }
+  };
+
   // const { response, err } = useAxios({
   //   method: 'post',
   //   url: 'http://localhost:3000/login',
@@ -61,30 +71,34 @@ const Login = () => {
 
         <TextField
           id=''
+          className={error ? 'error' : ''}
           error={error}
           label='Username'
           helperText=''
           password={false}
           onChange={(e) => useUsername(e.target.value)}
+          onKeyDown={(e) => onKeyDown(e)}
         />
         <TextField
           id=''
+          className={error ? 'error' : ''}
           error={error}
           label='Password'
           helperText='Incorrect Username/Password'
           password={true}
           onChange={(e) => usePassword(e.target.value)}
+          onKeyDown={(e) => onKeyDown(e)}
         />
 
         <div className='button-container'>
-          <div className='login-button' onClick={handleLogin}>
-            <a>Login</a>
-          </div>
           <div
-            className='signup-button'
+            className='already-button'
             onClick={() => dispatch(setSignup(true))}
           >
-            <a>Signup</a>
+            <a>Don't have an account?</a>
+          </div>
+          <div className='login-button' onClick={handleLogin}>
+            <a>Login</a>
           </div>
         </div>
       </div>
