@@ -4,18 +4,22 @@ import TextField from '@mui/material/TextField';
 
 export default function ValidationTextFields({
   id,
+  className,
   error,
   label,
   helperText,
   password,
   onChange,
+  onKeyDown,
 }: {
   id: string;
+  className: string;
   error: boolean;
   label: string;
   helperText: string;
   password: boolean;
   onChange: (e: any) => void;
+  onKeyDown: (e: any) => void;
 }) {
   return (
     <Box
@@ -29,12 +33,14 @@ export default function ValidationTextFields({
       <div>
         <TextField
           id={id}
+          className={className}
           error={error}
           label={label}
           defaultValue=''
           helperText={error ? helperText : ''}
           type={password ? 'password' : 'text'}
           onChange={onChange}
+          onKeyDown={onKeyDown}
         />
       </div>
     </Box>
