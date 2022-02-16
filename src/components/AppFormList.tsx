@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
@@ -11,25 +11,52 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { setData } from '../Redux/slice/dashBoardSlice';
 import axios, { AxiosResponse, AxiosError } from 'axios';
+import {
+  setPopUp,
+  setEditApp,
+  setItemData,
+} from '../Redux/slice/dashBoardSlice';
 
-function AppFormList({
-  setOpen,
-}: {
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+function AppFormList() {
   const [stages, setStages] = React.useState('');
   const userID = useAppSelector((state) => state.dashboard.data.user_id);
-  const companyName = useRef<HTMLInputElement>(null);
-  const jobTitle = useRef<HTMLInputElement>(null);
-  const description = useRef<HTMLInputElement>(null);
-  const urlLink = useRef<HTMLInputElement>(null);
-  const salary = useRef<HTMLInputElement>(null);
-  const location = useRef<HTMLInputElement>(null);
-  const deadline = useRef<HTMLInputElement>(null);
-  const contact = useRef<HTMLInputElement>(null);
-  const stage = useRef<HTMLInputElement>(null);
+  const editAppMode = useAppSelector((state) => state.dashboard.editApp);
+  const itemData = useAppSelector((state) => state.dashboard.itemData);
+
+  const companyName = useRef<HTMLInputElement | any>(null);
+  const jobTitle = useRef<HTMLInputElement | any>(null);
+  const description = useRef<HTMLInputElement | any>(null);
+  const urlLink = useRef<HTMLInputElement | any>(null);
+  const salary = useRef<HTMLInputElement | any>(null);
+  const location = useRef<HTMLInputElement | any>(null);
+  const deadline = useRef<HTMLInputElement | any>(null);
+  const contact = useRef<HTMLInputElement | any>(null);
+  const stage = useRef<HTMLInputElement | any>(null);
 
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    return () => {
+      dispatch(setEditApp(false));
+      dispatch(setItemData({}));
+      dispatch(setPopUp(false));
+    };
+  }, []);
+
+  useEffect(() => {
+    if (editAppMode) {
+      console.log('itemData.company_name', itemData.company_name);
+      companyName.current.value = itemData.company_name;
+      jobTitle.current.value = itemData.job_title;
+      description.current.value = itemData.description;
+      urlLink.current.value = itemData.url;
+      salary.current.value = itemData.salary;
+      location.current.value = itemData.location;
+      deadline.current.value = itemData.deadline;
+      contact.current.value = itemData.contact;
+      stage.current.value = itemData.stage;
+    }
+  }, [editAppMode]);
 
   const handleClick = () => {
     //Make a fetch request to DB and store app data
@@ -56,25 +83,15 @@ function AppFormList({
     })
       .then((res) => res.json())
       .then((data) => dispatch(setData(data)));
-    // axios
-    //    .post<LoginForm>('http://localhost:3000/login', formData)
-    //    .then((data: AxiosResponse<any>) => {
-    //      console.log('data.status', data.status);
-    //      if (data.status === 201) {
-    //        dispatch(setData(data.data));
-    //        navigate('/home', { replace: true });
-    //      }
-    //    })
-    //    .catch((err: AxiosError) => {
-    //      useError(true);
-    //    });
 
     // alert('Application created!');
-    setOpen(false);
+    // setOpen(false);
+    dispatch(setPopUp(false));
   };
 
   const handleCancel = () => {
-    setOpen(false);
+    dispatch(setPopUp(false));
+    // setOpen(false);
   };
   const handleChange = (event: SelectChangeEvent) => {
     setStages(event.target.value as string);
@@ -106,6 +123,7 @@ function AppFormList({
           justifyContent: 'center',
         }}
       >
+        {console.log('itemData', itemData)}
         <TextField
           id='company'
           label='Company Name'
@@ -176,7 +194,6 @@ function AppFormList({
         </Select>
         <Divider />
         <Button
-          color='secondary'
           onClick={handleClick}
           startIcon={<SaveIcon />}
           variant='contained'
@@ -185,12 +202,12 @@ function AppFormList({
             height: '8ch',
             padding: '10px',
             margin: '50px',
+            backgroundColor: '#e98074',
           }}
         >
           Save
         </Button>
         <Button
-          color='primary'
           onClick={handleCancel}
           startIcon={<DeleteIcon />}
           variant='contained'
@@ -199,6 +216,7 @@ function AppFormList({
             height: '8ch',
             padding: '10px',
             margin: '50px',
+            backgroundColor: '#325670',
           }}
         >
           Cancel

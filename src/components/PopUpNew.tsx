@@ -7,10 +7,13 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import AppFormList from './AppFormList';
+import { useAppDispatch, useAppSelector } from '../Redux/hooks';
+import { setPopUp } from '../Redux/slice/dashBoardSlice';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
+    backgroundColor: '#EAE7DC',
   },
   '& .MuiDialogActions-root': {
     padding: theme.spacing(1),
@@ -30,14 +33,17 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
   console.log(children);
 
   return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+    <DialogTitle
+      sx={{ m: 0, p: 2, backgroundColor: '#325670', color: 'white' }}
+      {...other}
+    >
       {children}
       {onClose ? (
         <IconButton
-          aria-label="close"
+          aria-label='close'
           onClick={onClose}
           sx={{
-            position:'fixed',
+            position: 'fixed',
             right: 10,
             top: 8,
             color: (theme) => theme.palette.grey[700],
@@ -51,35 +57,42 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
 };
 
 function PopUpNew() {
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
+  const open = useAppSelector((state) => state.dashboard.popup);
+  const dispatch = useAppDispatch();
 
   const handleClickOpen = () => {
-    setOpen(true);
+    // setOpen(true);
+    dispatch(setPopUp(true));
   };
   const handleClose = () => {
-    setOpen(false);
+    // setOpen(false);
+    dispatch(setPopUp(false));
   };
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button
+        sx={{ backgroundColor: '#e98074' }}
+        variant='outlined'
+        onClick={handleClickOpen}
+      >
         +
       </Button>
       <BootstrapDialog
         onClose={handleClose}
-        aria-labelledby="App-Form"
+        aria-labelledby='App-Form'
         open={open}
       >
-        <BootstrapDialogTitle id="App-Form" onClose={handleClose}>
+        <BootstrapDialogTitle id='App-Form' onClose={handleClose}>
           Application Form
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <AppFormList setOpen={setOpen}/>
+          <AppFormList />
         </DialogContent>
       </BootstrapDialog>
     </div>
   );
 }
-
 
 export default PopUpNew;
