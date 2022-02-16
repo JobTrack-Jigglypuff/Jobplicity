@@ -7,11 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import AppFormList from './AppFormList';
-<<<<<<< HEAD
-=======
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { setPopUp } from '../Redux/slice/dashBoardSlice';
->>>>>>> dev
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
