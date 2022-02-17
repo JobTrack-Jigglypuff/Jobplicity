@@ -2,11 +2,7 @@ import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
-import {
-  setPopUp,
-  setEditApp,
-  setItemData,
-} from '../Redux/slice/dashBoardSlice';
+import { setPopUp, setEditApp, setItemData } from '../Redux/slice/dashBoardSlice';
 
 import {
   DragDropContext,
