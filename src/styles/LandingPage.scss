@@ -1,0 +1,102 @@
+.landing-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #e0ece4;
+
+  .login-container,
+  .signup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #f38181;
+    }
+
+    .error {
+      // label of the textfield & when focused
+    .MuiFormLabel-root,
+    .MuiFormLabel-root.Mui-focused {
+      color: red !important;
+    }
+
+    // outline of the textfield
+    .MuiOutlinedInput-notchedOutline {
+      border-color: red !important;
+    }
+    }
+
+    // label of the textfield & when focused
+    .MuiFormLabel-root,
+    .MuiFormLabel-root.Mui-focused {
+      color: #40514e !important;
+    }
+
+    // outline of the textfield
+    .MuiOutlinedInput-notchedOutline {
+      border-color: #40514e !important;
+    }
+
+    // input text of the textfield
+    .MuiInputBase-root {
+      color: #0b0c10 !important;
+    }
+
+    // input field of the textfield
+    fieldset {
+      background-color: transparent !important;
+    }
+
+    #password-helper-text {
+      position: absolute;
+      width: 50%;
+      left: 100%;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      width: 80%;
+      margin-top: 20px;
+
+      .already-button {
+        display: flex;
+        cursor: pointer;
+        color: #ff9292;
+        align-items: center;
+        text-align: start;
+        font-weight: 100;
+        width: 50%;
+
+        &:hover {
+          color: #e6a4b4;
+        }
+      }
+
+      .login-button,
+      .signup-button {
+        display: flex;
+        background-color: #ff9999;
+        padding: 20px 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #d7fbe8;
+        font-weight: 100;
+
+        &:hover {
+          background-color: #e6a4b4;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+}
