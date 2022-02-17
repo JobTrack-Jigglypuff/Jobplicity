@@ -51,6 +51,7 @@ export const dashBoardSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
+
 export const { setData, setPopUp, setItemData, setEditApp, setFullName } =
   dashBoardSlice.actions;
 

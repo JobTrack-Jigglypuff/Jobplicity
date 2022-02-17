@@ -108,16 +108,12 @@ appController.createApp = async (req, res, next) => {
 };
 
 //Update applications
-// UPDATE table_name
-// SET column1 = value1,
-//     column2 = value2,
-// WHERE condition
-// RETURNING *
 
 appController.updateApp = async (req, res, next) => {
-  console.log('this is req.body', req.body);
+  console.log('this is updateApp req.body', req.body);
   try {
     const {
+      user_id,
       company_name,
       job_title,
       description,
@@ -127,35 +123,31 @@ appController.updateApp = async (req, res, next) => {
       deadline,
       contact,
       stage,
+      app_id,
     } = req.body;
 
     const updateQuery = `
       UPDATE applications 
-      SET company_name = ($1),
-          job_title = ($2), 
-          description = ($3), 
-          url = ($4),
-          salary = ($5), 
-          location = ($6), 
-          deadline = ($7), 
-          contact = ($8), 
-          stage = ($9)
-      WHERE app_id = $1
+      SET company_name = '${company_name}',
+          job_title = '${job_title}', 
+          description = '${description}', 
+          url = '${url}',
+          salary = '${salary}', 
+          location = '${location}', 
+          deadline = '${deadline}', 
+          contact = '${contact}', 
+          stage = '${stage}'
+      WHERE app_id = '${app_id}'
       RETURNING * `;
-    const dbParams = [
-      company_name,
-      job_title,
-      description,
-      url,
-      salary,
-      location,
-      deadline,
-      contact,
-      stage,
-    ];
 
-    const results = await db.query(updateQuery, dbParams);
-    res.locals.updateApp = results;
+
+    const results = await db.query(updateQuery);
+    res.locals.update = results.rows;
+    res.locals.data = { user_id };
+    res.locals.verified = true;
+    console.log('res.locals.updateApp', res.locals.data);
+
+
     next();
   } catch (error) {
     return next({
