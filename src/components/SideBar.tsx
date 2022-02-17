@@ -137,7 +137,7 @@ export default function SideBar() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List sx={{ backgroundColor: '#e0ece4', height: '100vh' }}>
+        <List sx={{ backgroundColor: '#e0ece4', color:'#f38181', fontWeight:'800',height: '100vh' }}>
           <ListItem button key={'Board'} onClick={handleBoard}>
             <ListItemText primary={'Board'} />
           </ListItem>
